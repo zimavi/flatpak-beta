@@ -1,0 +1,6 @@
+[Flatpak Repo]
+Title=zimavi beta
+Comment=Pre-releases of applications by zimavi
+Url=https://flatpak.zimavi.net.ua/beta/repo/
+Homepage=https://github.com/zimavi/flatpak-beta
+DefaultBranch=beta

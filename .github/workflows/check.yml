@@ -1,0 +1,21 @@
+name: check
+
+# Required on pull requests, so no path filter: it must always report. Runs without any secret.
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-26.08
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v7
+      - run: bash scripts/test-bump.sh
+      - run: bash scripts/build.sh /tmp/repo

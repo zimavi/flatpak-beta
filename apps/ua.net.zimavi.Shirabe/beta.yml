@@ -1,0 +1,47 @@
+app-id: ua.net.zimavi.Shirabe
+runtime: org.freedesktop.Platform
+runtime-version: '26.08'
+sdk: org.freedesktop.Sdk
+command: shirabe
+
+finish-args:
+  - --share=ipc
+  - --socket=x11 # Avalonia has no Wayland backend unless the app opts in; this covers XWayland
+  - --device=dri
+  - --socket=pulseaudio
+  - --share=network
+  - --filesystem=xdg-music # read-write: the app writes tags
+  - --talk-name=org.freedesktop.secrets
+
+build-options:
+  strip: false # the release is already built; stripping breaks .NET binaries
+  no-debuginfo: true
+
+modules:
+  - name: shirabe
+    buildsystem: simple
+    # scripts/bump.sh rewrites VERSION, RELEASE_DATE, url and sha256.
+    build-options:
+      env:
+        VERSION: '0.2.0-beta.3'
+        RELEASE_DATE: '2026-11-26'
+    build-commands:
+      - mkdir -p /app/shirabe /app/bin
+      - cp -a release/. /app/shirabe/
+      - test -x /app/shirabe/Shirabe
+      - ln -s /app/shirabe/Shirabe /app/bin/shirabe
+      - install -Dm644 ua.net.zimavi.Shirabe.desktop -t /app/share/applications
+      - install -Dm644 icon-512.png /app/share/icons/hicolor/512x512/apps/ua.net.zimavi.Shirabe.png
+      - sed -i "s/@VERSION@/$VERSION/; s/@RELEASE_DATE@/$RELEASE_DATE/" ua.net.zimavi.Shirabe.metainfo.xml
+      - install -Dm644 ua.net.zimavi.Shirabe.metainfo.xml -t /app/share/metainfo
+    sources:
+      - type: archive
+        url: https://github.com/zimavi/Shirabe.Client/releases/download/v0.2.0-beta.3/Shirabe-0.2.0-beta.3-linux-x64.tar.gz
+        sha256: ac2be8d475d98fc6c4abcb700119c4487c0202e6d44406f6546e6199f22f8ee4
+        dest: release
+      - type: file
+        path: ua.net.zimavi.Shirabe.desktop
+      - type: file
+        path: ua.net.zimavi.Shirabe.metainfo.xml
+      - type: file
+        path: icon-512.png

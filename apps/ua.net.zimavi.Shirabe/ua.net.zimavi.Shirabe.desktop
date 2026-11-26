@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Shirabe
+GenericName=Music Player
+Comment=Music player for the music you already have
+Exec=shirabe %f
+Icon=ua.net.zimavi.Shirabe
+Terminal=false
+Categories=AudioVideo;Audio;Player;
+MimeType=audio/mpeg;audio/flac;audio/x-flac;audio/ogg;audio/opus;audio/x-wav;audio/mp4;audio/aac;
+StartupWMClass=Shirabe

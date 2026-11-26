@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>ua.net.zimavi.Shirabe</id>
+  <name>Shirabe</name>
+  <summary>Music player for the music you already have</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <!-- The app is Apache-2.0; the bundled BASS audio library is proprietary. -->
+  <project_license>Apache-2.0 AND LicenseRef-proprietary</project_license>
+  <developer id="ua.net.zimavi">
+    <name>zimavi</name>
+  </developer>
+  <description>
+    <p>Local library, lyrics, queue and rich metadata, with no account or server.</p>
+  </description>
+  <launchable type="desktop-id">ua.net.zimavi.Shirabe.desktop</launchable>
+  <url type="homepage">https://github.com/zimavi/Shirabe.Client</url>
+  <url type="bugtracker">https://github.com/zimavi/Shirabe.Client/issues</url>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="@VERSION@" date="@RELEASE_DATE@"/>
+  </releases>
+</component>
