@@ -23,7 +23,7 @@ modules:
     # scripts/bump.sh rewrites VERSION, RELEASE_DATE, url and sha256.
     build-options:
       env:
-        VERSION: '0.2.0-beta.4'
+        VERSION: '0.2.0'
         RELEASE_DATE: '2026-11-27'
     build-commands:
       - mkdir -p /app/shirabe /app/bin
@@ -36,8 +36,8 @@ modules:
       - install -Dm644 ua.net.zimavi.Shirabe.metainfo.xml -t /app/share/metainfo
     sources:
       - type: archive
-        url: https://github.com/zimavi/Shirabe.Client/releases/download/v0.2.0-beta.4/Shirabe-0.2.0-beta.4-linux-x64.tar.gz
-        sha256: c44c35e9f3dae6dc339d9a326a3478c9fb9e45c1a97269d00b2716400860bbe0
+        url: https://github.com/zimavi/Shirabe.Client/releases/download/v0.2.0/Shirabe-0.2.0-linux-x64.tar.gz
+        sha256: 83100e85d255fb5b0d77aed2a90c060d5be080b66feec254102757a3b53487f4
         dest: release
       - type: file
         path: ua.net.zimavi.Shirabe.desktop
